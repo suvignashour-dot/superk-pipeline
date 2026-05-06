@@ -1,6 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { STATUS_LABELS, STATUS_COLORS } from '@/lib/constants';
+import { STATUS_LABELS, STATUS_COLORS } from '../../lib/constants';
 import { PARTNER_PARAMS } from '@/types';
 import type { Location, Task, PartnerScore } from '@/types';
 
