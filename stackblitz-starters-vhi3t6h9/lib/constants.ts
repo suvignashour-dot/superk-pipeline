@@ -74,20 +74,4 @@ export const WHO_RUNS_OPTIONS = [
   'Store Partner (Self)',
   'Store Partner + Employee',
   'Trusted Family Member',
-  'Dedicated Manager',
-]
-
-export const DEPENDENCY_OPTIONS = [
-  'Fully (Main income)',
-  'Partially (Other biz too)',
-  'Not Much (Strong backup)',
-]
-
-export const OPENING_FOR_OPTIONS = [
-  'Self',
-  'Family member',
-  'Friend/Relative',
-  'Employees',
-]
-
-export const RISK_OPT
+  'Dedicated
