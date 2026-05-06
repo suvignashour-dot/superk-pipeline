@@ -74,4 +74,56 @@ export const WHO_RUNS_OPTIONS = [
   'Store Partner (Self)',
   'Store Partner + Employee',
   'Trusted Family Member',
-  'Dedicated
+  'Dedicated Manager',
+]
+
+export const DEPENDENCY_OPTIONS = [
+  'Fully (Main income)',
+  'Partially (Other biz too)',
+  'Not Much (Strong backup)',
+]
+
+export const OPENING_FOR_OPTIONS = [
+  'Self',
+  'Family member',
+  'Friend/Relative',
+  'Employees',
+]
+
+export const RISK_OPTIONS = [
+  'Too many kirana/big shops nearby',
+  'People here only buy very cheap items',
+  'Wholesale shop nearby',
+  'Very few people come near this shop',
+  'Shop not visible from main road',
+  'Parking/loading space problem',
+  'Other shops give credit',
+  'Seasonal changes affect sales',
+  'Bypass area, low footfall',
+]
+
+export const LEAD_SOURCE_OPTIONS = [
+  'Superfone (Meta/Google)',
+  'SP Referral',
+  'Was a SuperK Customer',
+  'Observed a SuperK Store',
+  'Customer Referral',
+  'Online Lead',
+  'ASM Sourced',
+]
+
+export const STATUS_LABELS: Record<string, string> = {
+  pending:       'Pending',
+  reviewing:     'Reviewing',
+  'info-needed': 'Info Needed',
+  approved:      'Approved',
+  rejected:      'Rejected',
+}
+
+export const STATUS_COLORS: Record<string, string> = {
+  pending:       'bg-amber-100 text-amber-700',
+  reviewing:     'bg-blue-100 text-blue-700',
+  'info-needed': 'bg-purple-100 text-purple-700',
+  approved:      'bg-green-100 text-green-700',
+  rejected:      'bg-red-100 text-red-700',
+}
