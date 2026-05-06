@@ -16,7 +16,7 @@ import {
   LEAD_SOURCE_OPTIONS,
   STATUS_LABELS,
   STATUS_COLORS,
-} from '@/lib/constants';
+} from '../../lib/constants'
 
 type Tab = 'submit' | 'submissions' | 'tasks';
 
