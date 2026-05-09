@@ -29,7 +29,7 @@ export default function Home() {
     <main className="min-h-screen flex flex-col items-center justify-center px-4 py-12">
       <div className="mb-10 text-center">
         <h1 className="text-3xl font-bold tracking-tight">
-          Super<span className="text-green-700">K</span>
+          Super<span className="text-red-700">K</span>
         </h1>
         <p className="text-gray-500 text-sm mt-1">Store Evaluation Pipeline</p>
       </div>
