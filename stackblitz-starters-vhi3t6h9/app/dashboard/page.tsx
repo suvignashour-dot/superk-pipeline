@@ -16,7 +16,8 @@ export default function DashboardPage() {
   const [locations, setLocations] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
   const [selected, setSelected] = useState<string | null>(null)
-
+  const [syncing, setSyncing] = useState(false)
+  const [syncMsg, setSyncMsg] = useState('')
   useEffect(() => {
     fetch('/api/locations')
       .then(function(r) { return r.json() })
@@ -57,7 +58,37 @@ export default function DashboardPage() {
       </nav>
 
       <div className="max-w-5xl mx-auto px-4 py-6">
-
+{/* Sync Button */}
+        <div className="flex items-center justify-between mb-4">
+          <p className="text-sm text-gray-500">Live from Supabase database</p>
+          <button
+            onClick={async function() {
+              setSyncing(true)
+              setSyncMsg('')
+              try {
+                const res = await fetch('/api/sync', { method: 'POST' })
+                const data = await res.json()
+                setSyncMsg(data.message || 'Sync complete')
+                if (data.success) {
+                  fetch('/api/locations').then(r => r.json()).then(d => setLocations(Array.isArray(d) ? d : []))
+                }
+              } catch {
+                setSyncMsg('Sync failed — try again')
+              } finally {
+                setSyncing(false)
+              }
+            }}
+            disabled={syncing}
+            className="flex items-center gap-2 px-4 py-2 bg-green-800 text-white rounded-lg text-sm font-semibold disabled:opacity-50"
+          >
+            {syncing ? '⏳ Syncing...' : '🔄 Sync from Google Sheet'}
+          </button>
+        </div>
+        {syncMsg && (
+          <div className="bg-green-50 border border-green-200 rounded-lg px-4 py-2.5 mb-4 text-sm text-green-700">
+            {syncMsg}
+          </div>
+        )}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
           {[
             { label: 'Total Locations', value: locations.length, color: 'text-gray-900' },
