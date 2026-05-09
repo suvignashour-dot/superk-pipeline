@@ -34,8 +34,6 @@ export default function SuvignaPage() {
     if (tab === 'tasks') fetchTasks();
   }, [tab]);
 
- useEffect(() => { fetchLocations() }, [])
-
   async function fetchLocations() {
     try {
       const res = await fetch('/api/locations')
@@ -46,10 +44,14 @@ export default function SuvignaPage() {
     }
   }
 
-  async function fetchTasks() {
-    const res = await fetch('/api/tasks');
-    const data = await res.json();
-    setTasks(data);
+ async function fetchTasks() {
+    try {
+      const res = await fetch('/api/tasks')
+      const data = await res.json()
+      setTasks(Array.isArray(data) ? data : [])
+    } catch {
+      setTasks([])
+    }
   }
 
   function showToast(msg: string) {
