@@ -34,10 +34,16 @@ export default function SuvignaPage() {
     if (tab === 'tasks') fetchTasks();
   }, [tab]);
 
+ useEffect(() => { fetchLocations() }, [])
+
   async function fetchLocations() {
-    const res = await fetch('/api/locations');
-    const data = await res.json();
-    setLocations(data);
+    try {
+      const res = await fetch('/api/locations')
+      const data = await res.json()
+      setLocations(Array.isArray(data) ? data : [])
+    } catch {
+      setLocations([])
+    }
   }
 
   async function fetchTasks() {
