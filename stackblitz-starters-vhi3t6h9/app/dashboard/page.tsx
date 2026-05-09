@@ -35,14 +35,16 @@ export default function DashboardPage() {
     ? Math.round((locations.filter(l => l.status === 'approved').length / decided.length) * 100)
     : 0
 
-  if (loading) return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-      <div className="text-center">
-        <div className="spinner mx-auto mb-3" />
-        <p className="text-gray-400 text-sm">Loading pipeline...</p>
+  
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <p className="text-gray-400 text-sm">Loading pipeline...</p>
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">
