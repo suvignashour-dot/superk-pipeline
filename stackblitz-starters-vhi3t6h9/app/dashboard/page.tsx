@@ -237,4 +237,4 @@ export default function DashboardPage() {
       </div>
     </div>
   )
-}                      <span className={`text-[10px] font-bold px-2 py-1 rounded-full ${cfg.bg} ${cfg.color}`}>
+}
