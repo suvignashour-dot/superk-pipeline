@@ -1,5 +1,5 @@
 'use client'
-import React { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 
 const STATUS_CONFIG: Record<string, { label: string; color: string; bg: string; border: string }> = {
