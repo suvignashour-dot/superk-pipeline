@@ -39,7 +39,7 @@ export async function POST() {
 
     const existingKeys = new Set(
       (existing ?? []).map((l: any) =>
-        `${l.town?.toLowerCase()}_${l.asm_email?.toLowerCase()}`
+        l.town?.toLowerCase().trim()
       )
     )
 
@@ -49,7 +49,7 @@ export async function POST() {
     for (const row of dataRows) {
       const town = col(row, 2)
       const asmEmail = col(row, 1)
-      const key = `${town.toLowerCase()}_${asmEmail.toLowerCase()}`
+      const key = town.toLowerCase().trim()
 
       if (existingKeys.has(key)) {
         skipped++
