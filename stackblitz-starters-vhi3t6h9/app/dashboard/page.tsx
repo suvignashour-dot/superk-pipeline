@@ -22,10 +22,18 @@ export default function DashboardPage() {
     fetch('/api/locations')
       .then(function(r) { return r.json() })
       .then(function(data) {
-        setLocations(Array.isArray(data) ? data : [])
+        if (Array.isArray(data)) {
+          setLocations(data)
+        } else {
+          console.error('API error:', data)
+          setLocations([])
+        }
         setLoading(false)
       })
-      .catch(function() { setLoading(false) })
+      .catch(function(err) {
+        console.error('Fetch error:', err)
+        setLoading(false)
+      })
   }, [])
 
   const byStatus = STATUS_ORDER.reduce(function(acc, s) {
